@@ -212,7 +212,11 @@
                       on-iron-signal-search-filter-changed="searchFilterChanged"
                       >
         </iron-signals>
+
         <followup-dialog id="followupdialog"></followup-dialog>
+
+        <sizing-export id="sizingexport"></sizing-export>
+
         <paper-spinner id="spinner" active="{{!done}}" alt="Loading..."></paper-spinner>
 
         <paper-drawer-panel disable-swipe right-drawer force-narrow drawer-width="350px">
@@ -258,6 +262,10 @@
                         <div>
                             <paper-icon-button icon="file-download" title="Download Followup Spreadsheet"
                                                class="followup-button" on-tap="openFollowupDialog"></paper-icon-button>
+                        </div>
+                        <div>
+                            <paper-icon-button icon="save" title="Export Sizing Spreadsheet"
+                                               class="sizing-button" on-tap="openSizingExport"></paper-icon-button>
                         </div>
                     </paper-material>
                     <board-table id="table" conf={{conf}} aspects-filter="{{aspectsFilter}}"></board-table>
@@ -451,6 +459,10 @@
                 
                 openFollowupDialog : function() {
                 	this.$.followupdialog.opendialog();
+                },
+                
+                openSizingExport: function() {
+                	this.$.sizingexport.opendialog();
                 },
                 
                 searchFilterChanged: function(event, data) {
